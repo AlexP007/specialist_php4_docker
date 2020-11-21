@@ -16,3 +16,12 @@ services:
       - php-fpm
     ports:
       - "80:80"      
+  jenkins:
+    build:
+      context: ./jenkins
+    volumes:
+      - ./src/jenkins:/var/jenkins_home
+      - ./src/www/:/var/www
+    ports:
+      - "8080:8080"
+      - "50000:50000"
